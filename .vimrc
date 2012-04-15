@@ -18,3 +18,22 @@ set hlsearch
 set clipboard=unnamed
 
 source $VIMRUNTIME/macros/matchit.vim
+
+set nocompatible
+filetype off
+
+"このif文が必要。
+if has("win32") || has("win64")
+  set rtp+=~/vimfiles/vundle.git/ 
+  call vundle#rc('~/vimfiles/bundle/')
+else
+  set rtp+=~/.vim/vundle.git/ 
+  call vundle#rc()
+endif
+
+Bundle 'rails.vim'
+Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/unite.vim'
+Bundle 'thinca/vim-ref'
+Bundle 'thinca/vim-quickrun'
+filetype plugin indent on
